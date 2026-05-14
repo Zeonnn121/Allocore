@@ -2,13 +2,15 @@ package com.example.allocore.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.util.Date;
 
 @Service
 public class JwtService {
 
-    private final String SECRET_KEY = "fhsdjkgkkkkkkkkkkgkgkgkgkgkgkgkgkgkgkgg12653537623";
+    @Value("${jwt.secret}")
+    private String SECRET_KEY;
 
     public String generateToken(String email, String role) {
 
